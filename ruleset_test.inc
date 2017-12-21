@@ -20,8 +20,8 @@ $wpdb->query( "SELECT * FROM $wpdb->posts WHERE post_title LIKE '" . $_GET['titl
 
 // WordPress.Variables.GlobalVariables
 function foo() {
-	global $page; // WordPressVIPMinimum.Variables.VariableAnalysis.UnusedVariable // Bad. Warning.
-	$page = get_post( $post_id ); // Bad. // WordPressVIPMinimum.Variables.VariableAnalysis.UndefinedVariable Bad. Warning.
+	global $page; // StephBoisvertWordPressVIPMinimum.Variables.VariableAnalysis.UnusedVariable // Bad. Warning.
+	$page = get_post( $post_id ); // Bad. // StephBoisvertWordPressVIPMinimum.Variables.VariableAnalysis.UndefinedVariable Bad. Warning.
 }
 
 // WordPress.PHP.StrictComparisons
@@ -64,44 +64,44 @@ class TestClass extends MyClass {
 // WordPress.WP.AlternativeFunctions
 curl_init(); // Bad. Warning.
 
-// WordPressVIPMinimum.Actions.PreGetPosts
+// StephBoisvertWordPressVIPMinimum.Actions.PreGetPosts
 add_action( 'pre_get_posts', function( $wp_query ) {
 	if ( ! $wp_query->is_search() ) {
 		$wp_query->set( 'cat', '-5' ); // Bad. Warning.
 	}
 } );
 
-// WordPressVIPMinimum.Cache.CacheValueOverride
+// StephBoisvertWordPressVIPMinimum.Cache.CacheValueOverride
 $bad_wp_users = wp_cache_get( md5( self::CACHE_KEY . '_wp_users'), self::CACHE_GROUP );
 $bad_wp_users = false; // Bad.
 
-// WordPressVIPMinimum.Classes.DeclarationCompatibility
+// StephBoisvertWordPressVIPMinimum.Classes.DeclarationCompatibility
 class MyWidget extends WP_Widget {
 	function widget() {
 	} // Bad, missing $args and $instance params.
 }
 
-// WordPressVIPMinimum.Constants.ConstantRestictions
+// StephBoisvertWordPressVIPMinimum.Constants.ConstantRestictions
 if ( A8C_PROXIED_REQUEST === true ) { // Bad. Warning.
 }
 
-// WordPressVIPMinimum.Files.IncludingFile
+// StephBoisvertWordPressVIPMinimum.Files.IncludingFile
 require_once "my_file.php"; // NOK.
 
-// WordPressVIPMinimum.Functions.CheckReturnValue
+// StephBoisvertWordPressVIPMinimum.Functions.CheckReturnValue
 $my_theme_options = get_option( 'my_theme', false );
 if ( array_key_exists( 'key', $my_theme_options ) ) { // Bad.
 }
 
-// WordPressVIPMinimum.VIP.ErrorControl + WordPressVIPMinimum.VIP.RestrictedFunctions.file_get_contents_file_get_contents
+// StephBoisvertWordPressVIPMinimum.VIP.ErrorControl + StephBoisvertWordPressVIPMinimum.VIP.RestrictedFunctions.file_get_contents_file_get_contents
 @file_get_contents( $foo ); // Error + Warning.
 
-// WordPressVIPMinimum.VIP.FlushRewriteRules
+// StephBoisvertWordPressVIPMinimum.VIP.FlushRewriteRules
 global $wp_rewrite;
 $wp_rewrite->flush_rules(); // Bad.
 flush_rewrite_rules(); // Bad.
 
-// WordPressVIPMinimum.VIP.RegexpCompare + WordPress.VIP.SlowDBQuery
+// StephBoisvertWordPressVIPMinimum.VIP.RegexpCompare + WordPress.VIP.SlowDBQuery
 $query_args = array(
 	'posts_per_page' => 1,
 	'post_status' => 'draft',
@@ -110,7 +110,7 @@ $query_args = array(
 	'meta_compare' => 'REGEXP', // Bad.
 );
 
-// WordPressVIPMinimum.VIP.RemoteRequestTimeout
+// StephBoisvertWordPressVIPMinimum.VIP.RemoteRequestTimeout
 wp_remote_post( $this->endpoint, array(
         'method'      => 'POST',
         'timeout'     => 45, // Bad.
@@ -123,7 +123,7 @@ wp_remote_post( $this->endpoint, array(
 // Squiz.PHP.Eval
 eval( ';' ); // Bad. Error.
 
-// WordPressVIPMinimum.VIP.RestrictedFunctions
+// StephBoisvertWordPressVIPMinimum.VIP.RestrictedFunctions
 wpcom_vip_irc(); // Bad. Error.
 
 get_children(); // Bad. Warning. Message.

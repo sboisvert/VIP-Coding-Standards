@@ -1,9 +1,9 @@
 <?php
 /**
- * Minimum viable integration test for the WordPressVIPMinimum ruleset
+ * Minimum viable integration test for the StephBoisvertWordPressVIPMinimum ruleset
  *
- * To run the test, make sure you have the PHPCS, including the WordPressVIPMinimum standard, installed and executable
- * using the `phpcs --standard=WordPressVIPMinimum` command.
+ * To run the test, make sure you have the PHPCS, including the StephBoisvertWordPressVIPMinimum standard, installed and executable
+ * using the `phpcs --standard=StephBoisvertWordPressVIPMinimum` command.
  *
  * To run the integration test, simply execute this file using the PHP CLI and check the output:
  *
@@ -12,10 +12,10 @@
  * No issues found. All tests passed!
  * ```
  *
- * @package VIPCS\WordPressVIPMinimum
+ * @package VIPCS\StephBoisvertWordPressVIPMinimum
  */
 
-namespace WordPressVIPMinimum;
+namespace StephBoisvertWordPressVIPMinimum;
 
 // Expected values.
 $expected = array(
@@ -140,7 +140,7 @@ class PHPCS_Ruleset_Test {
 
 		// Collect the PHPCS result.
 		// @codingStandardsIgnoreLine
-		$output = shell_exec( '$PHPCS_BIN --standard=WordPressVIPMinimum --report=json ./ruleset_test.inc' );
+		$output = shell_exec( '$PHPCS_BIN --standard=StephBoisvertWordPressVIPMinimum --report=json ./ruleset_test.inc' );
 
 		$output = json_decode( $output, true );
 

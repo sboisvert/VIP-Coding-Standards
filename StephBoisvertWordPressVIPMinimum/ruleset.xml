@@ -1,0 +1,171 @@
+<?xml version="1.0"?>
+<ruleset name="StephBoisvert WordPress VIP Minimum">
+	<description>StephBoisvert WordPress VIP Minimum Coding Standards</description>
+
+	<autoload>./PHPCSCompatibility.php</autoload>
+
+	<rule ref="WordPress.VIP">
+		<exclude name="WordPress.VIP.ValidatedSanitizedInput.MissingUnslash"/>
+		<exclude name="WordPress.VIP.RestrictedFunctions"/>
+		<exclude name="WordPress.VIP.RestrictedFunctions.wpcom_vip_get_term_by_wpcom_vip_get_term_by"/>
+		<exclude name="WordPress.VIP.TaxonomyMetaInOptions.PossibleTermMetaInOptions"/>
+		<exclude name="WordPress.VIP.RestrictedFunctions.get_posts"/>
+		<exclude name="WordPress.VIP.RestrictedFunctions.switch_to_blog_switch_to_blog"/>
+	</rule>
+
+
+
+	<rule ref="WordPress.XSS.EscapeOutput"/>
+
+	<rule ref="StephBoisvertWordPressVIPMinimum.Variables.VariableAnalysis.UnusedVariable">
+		<severity>3</severity>
+	</rule>
+	<rule ref="StephBoisvertWordPressVIPMinimum.Variables.VariableAnalysis.UndefinedVariable">
+		<severity>3</severity>
+	</rule>
+	<rule ref="WordPress.WP.AlternativeFunctions.json_encode_json_encode">
+		<severity>3</severity>
+ 	</rule>
+	<rule ref="WordPress.PHP.DiscouragedPHPFunctions.serialize_serialize">
+		<severity>3</severity>
+ 	</rule>
+	<rule ref="WordPress.PHP.DiscouragedPHPFunctions.serialize_unserialize">
+		<severity>3</severity>
+ 	</rule>
+	<!--
+    <rule ref="StephBoisvertWordPressVIPMinimum.VIP.RestrictedFunctions.get_posts_get_posts">
+        <severity>3</severity>
+    </rule>
+
+    <rule ref="StephBoisvertWordPressVIPMinimum.VIP.TaxonomyMetaInOptions.PossibleTermMetaInOptions">
+        <severity>3</severity>
+    </rule>
+    -->
+	<rule ref="StephBoisvertWordPressVIPMinimum.Files.IncludingFile.IncludingFile">
+		<severity>3</severity>
+	</rule>
+	<rule ref="WordPress.PHP.YodaConditions">
+		<severity>3</severity>
+	</rule>
+
+
+	<rule ref="WordPress.CSRF.NonceVerification"/>
+	<rule ref="WordPress.WP.EnqueuedResources">
+		<severity>3</severity>
+	</rule>
+	<rule ref="WordPress.WP.PreparedSQL"/>
+	<rule ref="WordPress.Variables.GlobalVariables">
+		<severity>3</severity>
+	</rule>
+	<rule ref="WordPress.PHP.StrictComparisons">
+		<severity>3</severity>
+	</rule>
+	<rule ref="WordPress.CodeAnalysis.AssignmentInCondition">
+		<severity>3</severity>
+	</rule>
+	<rule ref="WordPress.PHP.StrictInArray">
+		<severity>3</severity>
+	</rule>
+	<rule ref="WordPress.Functions.DontExtract"/>
+
+	<rule ref="Generic.NamingConventions.ConstructorName">
+		<severity>3</severity>
+	</rule>
+	<rule ref="Generic.PHP.DisallowShortOpenTag"/>
+	<!-- Covers rule: Omitting the closing PHP tag at the end of a file is preferred. -->
+	<rule ref="PSR2.Files.ClosingTag"/>
+	<rule ref="Squiz.WhiteSpace.SuperfluousWhitespace">
+		<exclude name="Squiz.WhiteSpace.SuperfluousWhitespace.EmptyLines"/>
+		<exclude name="Squiz.WhiteSpace.SuperfluousWhitespace.EndLine"/>
+		<include-pattern>*.php</include-pattern>
+		<include-pattern>*.inc</include-pattern>
+		<exclude-pattern>*.js</exclude-pattern>
+		<exclude-pattern>*.css</exclude-pattern>
+	</rule>
+	<rule ref="Squiz.PHP.CommentedOutCode">
+		<severity>3</severity>
+	</rule>
+
+	<!-- https://vip.wordpress.com/documentation/vip/code-review-what-we-look-for/#eval-and-create_function -->
+	<rule ref="Squiz.PHP.Eval"/>
+	<rule ref="Squiz.PHP.Eval.Discouraged">
+		<type>error</type>
+		<message>eval() is a security risk so not allowed.</message>
+	</rule>
+
+	<!-- https://vip.wordpress.com/documentation/vip/code-review-what-we-look-for/#settings-alteration -->
+	<rule ref="WordPress.PHP.DiscouragedPHPFunctions">
+		<!-- https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards/pull/633#issuecomment-266634811 -->
+		<properties>
+			<property name="exclude" value="obfuscation"/>
+		</properties>
+	</rule>
+	<rule ref="WordPress.PHP.DiscouragedPHPFunctions.runtime_configuration_ini_set">
+		<type>error</type>
+	</rule>
+	<rule ref="WordPress.PHP.DiscouragedPHPFunctions.runtime_configuration_error_reporting">
+		<type>error</type>
+	</rule>
+	<rule ref="WordPress.PHP.DiscouragedPHPFunctions.runtime_configuration_ini_alter">
+		<type>error</type>
+	</rule>
+	<rule ref="WordPress.PHP.DiscouragedPHPFunctions.runtime_configuration_ini_restore">
+		<type>error</type>
+	</rule>
+	<rule ref="WordPress.PHP.DiscouragedPHPFunctions.runtime_configuration_apache_setenv">
+		<type>error</type>
+	</rule>
+	<rule ref="WordPress.PHP.DiscouragedPHPFunctions.runtime_configuration_putenv">
+		<type>error</type>
+	</rule>
+	<rule ref="WordPress.PHP.DiscouragedPHPFunctions.runtime_configuration_set_include_path">
+		<type>error</type>
+	</rule>
+	<rule ref="WordPress.PHP.DiscouragedPHPFunctions.runtime_configuration_restore_include_path">
+		<type>error</type>
+	</rule>
+	<rule ref="WordPress.PHP.DiscouragedPHPFunctions.runtime_configuration_magic_quotes_runtime">
+		<type>error</type>
+	</rule>
+	<rule ref="WordPress.PHP.DiscouragedPHPFunctions.runtime_configuration_set_magic_quotes_runtime">
+		<type>error</type>
+	</rule>
+	<rule ref="WordPress.PHP.DiscouragedPHPFunctions.runtime_configuration_dl">
+		<type>error</type>
+	</rule>
+
+	<!-- https://vip.wordpress.com/documentation/code-review-what-we-look-for/#commented-out-code-debug-code-or-output -->
+	<rule ref="WordPress.PHP.DevelopmentFunctions">
+		<!-- this is being covered in terms of WordPress.PHP.DiscouragedPHPFunctions sniff -->
+		<exclude name="WordPress.PHP.DevelopmentFunctions.prevent_path_disclosure_error_reporting"/>
+	</rule>
+	<!-- https://vip.wordpress.com/documentation/vip/code-review-what-we-look-for/#settings-alteration -->
+	<rule ref="WordPress.PHP.DevelopmentFunctions.prevent_path_disclosure">
+		<type>error</type>
+	</rule>
+	<rule ref="WordPress.PHP.DevelopmentFunctions.error_log_error_log">
+		<type>error</type>
+	</rule>
+	<rule ref="WordPress.PHP.DevelopmentFunctions.error_log_var_dump">
+		<type>error</type>
+	</rule>
+
+	<!-- https://vip.wordpress.com/documentation/vip/code-review-what-we-look-for/#use-wp_parse_url-instead-of-parse_url -->
+	<!-- https://vip.wordpress.com/documentation/vip/code-review-what-we-look-for/#use-wp_json_encode-over-json_encode -->
+	<!-- https://vip.wordpress.com/documentation/vip/code-review-what-we-look-for/#filesystem-writes -->
+	<!-- https://vip.wordpress.com/documentation/vip/code-review-what-we-look-for/#remote-calls -->
+	<rule ref="WordPress.WP.AlternativeFunctions"/>
+	<!-- VIP recommends other functions -->
+	<rule ref="WordPress.WP.AlternativeFunctions.curl">
+		<message>Using cURL functions is highly discouraged within VIP context. Check (Fetching Remote Data) on VIP Documentation.</message>
+		<severity>3</severity>
+	</rule>
+	<rule ref="WordPress.WP.AlternativeFunctions.file_get_contents">
+		<message>%s() is discouraged for remote files, please use vip_safe_wp_remote_get() instead. (You can use file_get_contents for local files)</message>
+	</rule>
+
+	<rule ref="StephBoisvertWordPressVIPMinimum.VIP.RestrictedFunctions.get_posts_get_children">
+		<type>error</type>
+		<message>%1$s() performs a no-LIMIT query by default, make sure to set a reasonable posts_per_page. %1$s() will do a -1 query by default, a maximum of 100 should be used.</message>
+	</rule>
+</ruleset>

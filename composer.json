@@ -1,6 +1,6 @@
 {
 	"name"       : "automattic/vipwpcs",
-	"description": "PHP_CodeSniffer rules (sniffs) to enforce WordPress VIP minimum coding conventions",
+	"description": "PHP_CodeSniffer rules (sniffs) to enforce StephBoisvert WordPress VIP minimum coding conventions",
 	"keywords"   : ["phpcs", "standards", "WordPress"],
 	"license"    : "MIT",
 	"authors"    : [
